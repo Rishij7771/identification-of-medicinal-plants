@@ -1,1 +1,1 @@
-gunicorn your_application.wsgi:application
+gunicorn app:app
