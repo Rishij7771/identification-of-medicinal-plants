@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/uploads/Plant-image.png" />
+    <title>Medicinal Plant Identifier</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: url("/static/uploads/tropical-green-leaves-background.jpg")
+          no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        max-width: 90%;
+        width: 500px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      input[type="file"] {
+        display: none;
+        font-weight: bold;
+      }
+
+      .custom-file-upload {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #0964b0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.2s ease;
+      }
+
+      .custom-file-upload:hover {
+        background-color: #f3f4f6;
+      }
+
+      .filename {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #333;
+      }
+
+      input[type="submit"] {
+        margin-top: 1rem;
+        padding: 12px 30px;
+        background: linear-gradient(to bottom, #00ff00, #0c4a0c);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background: linear-gradient(to bottom, #0c4a0c, #00ff00);
+      }
+
+      .error {
+        margin-top: 1rem;
+        color: red;
+        font-weight: 500;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 1.5rem;
+          border-radius: 20px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        input[type="submit"] {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Medicinal Plant Identifier</h1>
+      <p>
+        Select an image of a medicinal plant, and our system will identify it
+        for you!
+      </p>
+      <form method="post" action="/predict" enctype="multipart/form-data">
+        <label class="custom-file-upload">
+          <input
+            type="file"
+            id="myfile"
+            name="myfile"
+            onchange="updateFileName()"
+          />
+          Upload File
+        </label>
+        <br />
+        <input type="submit" value="Predict" />
+      </form>
+    </div>
+  </body>
+</html>
